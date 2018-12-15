@@ -1,4 +1,4 @@
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 
 package:
   name: parsimonious
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/parsimonious/parsimonious-{{ version }}.tar.gz
-  sha256: ae0869d72a6e57703f24313a5f5748e73ebff836e6fe8b3ddf34ea0dc00d086b
+  sha256: 3add338892d580e0cb3b1a39e4a1b427ff9f687858fdd61097053742391a9f6b
 
 build:
   noarch: python
