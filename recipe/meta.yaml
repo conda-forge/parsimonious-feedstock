@@ -1,25 +1,26 @@
-{% set version = "0.8.1" %}
+{% set name = "parsimonious" %}
+{% set version = "0.9.0" %}
 
 package:
-  name: parsimonious
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/parsimonious/parsimonious-{{ version }}.tar.gz
-  sha256: 3add338892d580e0cb3b1a39e4a1b427ff9f687858fdd61097053742391a9f6b
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/parsimonious-{{ version }}.tar.gz
+  sha256: b2ad1ae63a2f65bd78f5e0a8ac510a98f3607a43f1db2a8d46636a5d9e4a30c1
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   build:
-    - python
+    - python >=3.7
     - pip
   run:
-    - python
-    - six >=1.9.0
+    - python >=3.7
+    - regex
 
 test:
   imports:
@@ -42,3 +43,5 @@ about:
 extra:
   recipe-maintainers:
     - nelson-liu
+    - lucaswiman
+    - enekomartinmartinez
