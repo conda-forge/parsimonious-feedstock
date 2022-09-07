@@ -1,5 +1,5 @@
 {% set name = "parsimonious" %}
-{% set version = "0.9.0" %}
+{% set version = "0.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,15 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/parsimonious-{{ version }}.tar.gz
-  sha256: b2ad1ae63a2f65bd78f5e0a8ac510a98f3607a43f1db2a8d46636a5d9e4a30c1
+  sha256: 8281600da180ec8ae35427a4ab4f7b82bfec1e3d1e52f80cb60ea82b9512501c
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
-  build:
+  host:
     - python >=3.7
     - pip
   run:
@@ -25,10 +25,13 @@ requirements:
 test:
   imports:
     - parsimonious
-  commands:
-    - python -m nose -s -v parsimonious -e test_benchmarks
   requires:
-    - nose
+    - pytest
+  source_files:
+    - parsimonious/tests
+  commands:
+    - pytest parsimonious/tests
+
 
 about:
   home: https://github.com/erikrose/parsimonious/
