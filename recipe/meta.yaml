@@ -26,6 +26,8 @@ test:
   imports:
     - parsimonious
   commands:
+    - ls
+    - pwd
     - python -m pytest --tb=native parsimonious
   requires:
     - pytest
