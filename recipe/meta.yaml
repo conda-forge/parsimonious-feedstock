@@ -26,9 +26,9 @@ test:
   imports:
     - parsimonious
   commands:
-    - python -m nose -s -v parsimonious -e test_benchmarks
+    - python -m pytest --tb=native parsimonious
   requires:
-    - nose
+    - pytest
 
 about:
   home: https://github.com/erikrose/parsimonious/
