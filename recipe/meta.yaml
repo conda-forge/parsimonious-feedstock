@@ -25,12 +25,13 @@ requirements:
 test:
   imports:
     - parsimonious
-  commands:
-    - ls
-    - pwd
-    - python -m pytest --tb=native parsimonious
   requires:
     - pytest
+  source_files:
+    - parsimonious/tests
+  commands:
+    - pytest parsimonious/tests
+
 
 about:
   home: https://github.com/erikrose/parsimonious/
