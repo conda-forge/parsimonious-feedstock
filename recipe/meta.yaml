@@ -6,20 +6,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/parsimonious-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/parsimonious-{{ version }}.tar.gz
   sha256: 8281600da180ec8ae35427a4ab4f7b82bfec1e3d1e52f80cb60ea82b9512501c
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - regex
 
 test:
@@ -27,6 +27,7 @@ test:
     - parsimonious
   requires:
     - pytest
+    - python {{ python_min }}
   source_files:
     - parsimonious/tests
   commands:
